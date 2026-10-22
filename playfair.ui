@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>860</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Playfair šifra</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #2b2b2b; }
+QWidget { color: #e0e0e0; font-family: 'Segoe UI'; font-size: 13px; }
+QGroupBox {
+    background-color: #333333;
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    margin-top: 12px;
+    padding: 14px 10px 10px 10px;
+    font-weight: bold;
+    color: #4a9eff;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 0 5px;
+    background-color: #2b2b2b;
+}
+QLineEdit, QTextEdit {
+    background-color: #3c3c3c;
+    color: #f0f0f0;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    padding: 5px 7px;
+}
+QLineEdit:focus, QTextEdit:focus { border: 1px solid #4a9eff; }
+QComboBox {
+    background-color: #3c3c3c;
+    color: #f0f0f0;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    padding: 5px 7px;
+}
+QPushButton {
+    background-color: #4a9eff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+QPushButton:hover { background-color: #5aaeff; }
+QPushButton:pressed { background-color: #3a8eef; }
+QTableWidget {
+    background-color: #2f2f2f;
+    color: #f0c674;
+    border: 1px solid #4a4a4a;
+    gridline-color: #4a4a4a;
+    font-family: 'Consolas';
+    font-size: 16px;
+    font-weight: bold;
+}
+QTableWidget::item { background-color: #3a3a3a; padding: 4px; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="hlavniLayout">
+    <property name="spacing"><number>8</number></property>
+    <property name="leftMargin"><number>18</number></property>
+    <property name="topMargin"><number>12</number></property>
+    <property name="rightMargin"><number>18</number></property>
+    <property name="bottomMargin"><number>12</number></property>
+    <item>
+     <widget class="QLabel" name="nadpis">
+      <property name="text"><string>Playfair šifra</string></property>
+      <property name="alignment"><set>Qt::AlignCenter</set></property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupVstup">
+      <property name="title"><string>Vstupní text</string></property>
+      <layout class="QVBoxLayout" name="vstupLayout">
+       <item>
+        <widget class="QTextEdit" name="textEditVstup">
+         <property name="minimumSize"><size><width>0</width><height>70</height></size></property>
+         <property name="plainText"><string>Utok na Čenka v 900!@°^</string></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupKlice">
+      <property name="title"><string>Nastavení šifry</string></property>
+      <layout class="QHBoxLayout" name="kliceLayout">
+       <property name="spacing"><number>12</number></property>
+       <item>
+        <widget class="QLabel" name="labelKlic">
+         <property name="text"><string>Klíč:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditKlic">
+         <property name="minimumSize"><size><width>200</width><height>16777215</height></size></property>
+         <property name="text"><string>PLAYFAIR</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelJazyk">
+         <property name="text"><string>Jazyk:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBoxJazyk">
+         <property name="minimumSize"><size><width>80</width><height>16777215</height></size></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonZasifruj">
+         <property name="minimumSize"><size><width>120</width><height>34</height></size></property>
+         <property name="text"><string>Zašifruj</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonDesifruj">
+         <property name="minimumSize"><size><width>120</width><height>34</height></size></property>
+         <property name="text"><string>Dešifruj</string></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupVysledky">
+      <property name="title"><string>Průběh a výsledek</string></property>
+      <layout class="QVBoxLayout" name="vysledkyLayout">
+       <property name="spacing"><number>4</number></property>
+       <item>
+        <widget class="QLabel" name="labelFiltrovany">
+         <property name="text"><string>Vyfiltrovaný text:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEditFiltrovany">
+         <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+         <property name="readOnly"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelBigramy">
+         <property name="text"><string>Bigramy:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEditBigramy">
+         <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+         <property name="readOnly"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelSifra">
+         <property name="text"><string>Zašifrovaný text:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEditSifra">
+         <property name="minimumSize"><size><width>0</width><height>50</height></size></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelVysledek">
+         <property name="text"><string>Výsledek:</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEditVysledek">
+         <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+         <property name="readOnly"><bool>true</bool></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupTabulka">
+      <property name="title"><string>Šifrovací tabulka 5×5</string></property>
+      <layout class="QVBoxLayout" name="tabulkaLayout">
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="minimumSize"><size><width>300</width><height>180</height></size></property>
+         <property name="maximumSize"><size><width>400</width><height>180</height></size></property>
+         <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+         <property name="selectionMode"><enum>QAbstractItemView::NoSelection</enum></property>
+         <property name="showGrid"><bool>true</bool></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
